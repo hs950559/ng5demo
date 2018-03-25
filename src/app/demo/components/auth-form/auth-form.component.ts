@@ -3,7 +3,8 @@ import { Component, Output, EventEmitter,
   AfterViewInit,
   ViewChildren,
   ContentChild,
-  QueryList
+  QueryList,
+  ChangeDetectorRef
 } from '@angular/core';
 import { AuthRememberComponent } from '../auth-remember/auth-remember.component';
 import { AuthMessageComponent } from '../auth-message/auth-message.component';
@@ -19,17 +20,17 @@ export class AuthFormComponent implements AfterContentInit, AfterViewInit {
   @ContentChild(AuthRememberComponent) remember: AuthRememberComponent;
   @Output() submitted: EventEmitter<any> = new EventEmitter();
 
+  constructor(private cd: ChangeDetectorRef) {}
   onSubmit(value) {
     this.submitted.emit(value);
   }
 
   ngAfterViewInit() {
     if (this.message) {
-      setTimeout(() => {
-        this.message.forEach(message => {
-          message.days = 30;
-        });
+      this.message.forEach(message => {
+        message.days = 30;
       });
+      this.cd.detectChanges();
     }
   }
 
