@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, ContentChild, AfterContentInit } from '@angular/core';
+import { Component, Output, EventEmitter, ContentChildren, AfterContentInit, QueryList } from '@angular/core';
 import { AuthRememberComponent } from '../auth-remember/auth-remember.component';
 @Component({
   // tslint:disable-next-line:component-selector
@@ -8,7 +8,7 @@ import { AuthRememberComponent } from '../auth-remember/auth-remember.component'
 })
 export class AuthFormComponent implements AfterContentInit {
   showMessage = false;
-  @ContentChild(AuthRememberComponent) remember: AuthRememberComponent;
+  @ContentChildren(AuthRememberComponent) remember: QueryList<AuthRememberComponent>;
   @Output() submitted: EventEmitter<any> = new EventEmitter();
 
   onSubmit(value) {
@@ -17,11 +17,12 @@ export class AuthFormComponent implements AfterContentInit {
 
   ngAfterContentInit() {
     if (this.remember) {
-      this.remember.checked.subscribe((val: boolean) => {
-        this.showMessage = val;
+      this.remember.forEach(item => {
+        item.checked.subscribe((val: boolean) => {
+          this.showMessage = val;
+        });
       });
     }
-
   }
 
 }
