@@ -6,6 +6,7 @@ import { DemoComponent } from './demo/demo.component';
 import { AuthFormComponent } from './components/auth-form/auth-form.component';
 import { AuthRememberComponent } from './components/auth-remember/auth-remember.component';
 import { FormsModule } from '@angular/forms';
+import { AuthMessageComponent } from './components/auth-message/auth-message.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { FormsModule } from '@angular/forms';
   ],
   declarations: [DemoComponent,
     AuthFormComponent,
-    AuthRememberComponent]
+    AuthRememberComponent,
+    AuthMessageComponent]
 })
 export class DemoModule { }

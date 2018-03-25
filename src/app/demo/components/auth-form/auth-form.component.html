@@ -16,9 +16,12 @@
       <div class="form-froup">
         <ng-content select="auth-remember"></ng-content>
       </div>
-      <div *ngIf="showMessage">
+      <auth-message
+        [style.display]="(showMessage ? 'inherit' : 'none')">
+      </auth-message>
+      <!-- <div *ngIf="showMessage">
         You will be logged in for 30 days
-      </div>
+      </div> -->
       <ng-content select="button"></ng-content>
     </form>
   </div>
