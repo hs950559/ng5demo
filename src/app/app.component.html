@@ -26,8 +26,10 @@
   </div>
 </nav>
 <div class="container-fluid">
-    <button class="btn btn-primary" (click)="moveComponent()">Move Component</button>
-    <button class="btn btn-danger" (click)="destroyComponent()">Destroy Component</button>
   <div #entry></div>
+  <ng-template #tmp>
+    <h1>My Name: Hemant</h1>
+    <p>Location: CA</p>
+  </ng-template>
   <router-outlet></router-outlet>
 </div>
