@@ -9,6 +9,9 @@ export class AppComponent implements AfterContentInit {
   @ViewChild('entry', {read: ViewContainerRef}) entry: ViewContainerRef;
   @ViewChild('tmp') tmp: TemplateRef<any>;
   ngAfterContentInit() {
-    this.entry.createEmbeddedView(this.tmp);
+    this.entry.createEmbeddedView(this.tmp, {
+      $implicit: 'Upendra',
+      location: 'Hyderabad'
+    });
   }
 }
