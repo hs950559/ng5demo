@@ -26,6 +26,10 @@ export class AppComponent implements AfterContentInit {
     this.component.destroy();
   }
 
+  moveComponent() {
+    this.entry.move(this.component.hostView, 1);
+  }
+
   loginUser(user) {
     console.log('Login', user);
   }
