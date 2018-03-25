@@ -26,10 +26,10 @@
   </div>
 </nav>
 <div class="container-fluid">
-  <div #entry></div>
-  <ng-template #tmp let-name let-location="location">
-    <h1>My Name: {{ name }}</h1>
-    <p>Location: {{ location }}</p>
+  <ng-container [ngTemplateOutlet]="tmp"></ng-container>
+  <ng-template #tmp>
+    <h1>My Name: Hemant</h1>
+    <p>Location: Bangalore</p>
   </ng-template>
   <router-outlet></router-outlet>
 </div>
