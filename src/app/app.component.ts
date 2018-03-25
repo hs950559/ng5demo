@@ -1,4 +1,4 @@
-import { Component, ViewChild, ViewContainerRef, ComponentFactoryResolver, AfterContentInit } from '@angular/core';
+import { Component, ViewChild, ViewContainerRef, ComponentFactoryResolver, AfterContentInit, ComponentRef } from '@angular/core';
 import { DynamicComponent } from './dynamic/dynamic.component';
 
 @Component({
@@ -7,6 +7,7 @@ import { DynamicComponent } from './dynamic/dynamic.component';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterContentInit {
+  component: ComponentRef<DynamicComponent>;
   @ViewChild('entry', { read: ViewContainerRef }) entry: ViewContainerRef;
 
   constructor(
@@ -15,9 +16,13 @@ export class AppComponent implements AfterContentInit {
 
   ngAfterContentInit() {
     const authFormFactory = this.resolver.resolveComponentFactory(DynamicComponent);
-    const component = this.entry.createComponent(authFormFactory);
-    component.instance.title = 'Updated ' + component.instance.title;
-    component.instance.submitted.subscribe(this.loginUser);
+    this.component = this.entry.createComponent(authFormFactory);
+    this.component.instance.title = 'Updated ' + this.component.instance.title;
+    this.component.instance.submitted.subscribe(this.loginUser);
+  }
+
+  destroyComponent() {
+    this.component.destroy();
   }
 
   loginUser(user) {
