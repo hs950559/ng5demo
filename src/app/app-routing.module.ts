@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'lazy', loadChildren: './lazy/lazy.module#LazyModule' },
+  { path: 'demo', loadChildren: './demo/demo.module#DemoModule' },
   { path: '',
     redirectTo: '/home',
     pathMatch: 'full'

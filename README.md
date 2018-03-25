@@ -1,10 +1,10 @@
 ## Demo
+```
+npm run build:ssr
+npm run serve:ssr // universal app
+ng serve -o // client app
+```
 
 ## Resource
 
-https://console.firebase.google.com/u/1/project/eshop-b05d6/overview
 
-```
-npm install firebase angularfire2 --save
-
-```
