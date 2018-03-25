@@ -17,6 +17,7 @@ export class AppComponent implements AfterContentInit {
     const authFormFactory = this.resolver.resolveComponentFactory(DynamicComponent);
     const component = this.entry.createComponent(authFormFactory);
     component.instance.title = 'Updated ' + component.instance.title;
+    component.instance.submitted.subscribe(this.loginUser);
   }
 
   loginUser(user) {

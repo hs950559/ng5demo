@@ -12,6 +12,7 @@ import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { DynamicComponent } from './dynamic/dynamic.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { DynamicComponent } from './dynamic/dynamic.component';
     DynamicComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule.withServerTransition({ appId: 'fire-blog' }),
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
