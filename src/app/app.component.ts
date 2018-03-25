@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
+  ctx = {
+    $implicit: 'Varun Gupta',
+    location: 'India, Hyderabad'
+  };
 }
