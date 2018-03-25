@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dynamic.component.scss']
 })
 export class DynamicComponent implements OnInit {
-
+  title = 'Dynamic Title';
   constructor() { }
 
   ngOnInit() {
