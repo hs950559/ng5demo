@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./demo.component.scss']
 })
 export class DemoComponent {
-
   rememberMe = false;
 
   rememberUser(remember: boolean) {

@@ -14,6 +14,9 @@
         <input type="password" name="password" class="form-control" ngModel>
       </div>
       <ng-content select="auth-remember"></ng-content>
+      <div *ngIf="showMessage">
+        You will be logged in for 30 days
+      </div>
       <ng-content select="button"></ng-content>
     </form>
   </div>
